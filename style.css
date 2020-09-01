@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px; 
+  /* overflow: hidden; */
+}
+
+a {
+  font-family: 'Pacifico', cursive;
+  font-size: 60px;
+  color: #f38c8d;  /* fallback for old browsers */
+  text-decoration: none;
+}
+
+.container { 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.header__logo {
+  text-align: center;
+}
+
+/* Style input kuro */
+.content__form {
+  padding: 10%;
+  text-align: center;
+}
+
+.input {
+  display: inline-block;
+  width: 350px;
+  margin: 30px 15px;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .input {
+    width: 100%;
+  }
+}
+
+.input__field {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 20px 20%;
+  border: 0;
+  background-color: transparent;
+  text-align: center;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-weight: 700;
+  color:#2C5F72;
+  font-size: 16px;
+}
+
+.input__field:focus {
+  outline: 0;
+}
+
+.input__label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ee9ca7;
+  text-transform: uppercase;
+  font-weight: 700;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.input__label::before,
+.input__label::after {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  border: 4px solid #999;
+  content: " ";
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.input__label::before {
+  left: 0;
+  border-right: 0;
+}
+
+.input__label::after {
+  right: 0;
+  border-left: 0;
+}
+
+.input__label-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 40%;
+}
+
+.input.active .input__field {
+  opacity: 1;
+}
+
+.input.active .input__label-content {
+  top: -60%;
+} 
+
+.input.active .input__label::before {
+  left: -3%;
+}
+
+.input.active .input__label::after {
+  right: -3%;
+}
+
+/* Button */
+.btn {
+  display: block;
+  margin: 30px auto;
+  padding: 20px 50px;
+  background: #f3d2b3;
+  font-size: 18px;
+  color: #f38c8d;
+  font-weight: 700;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  color: #fff;
+  background: #f38c8d;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+/* Overlay */
+.overlay-wrap {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(250, 240, 230, 0.8);
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.overlay-wrap.active {
+  opacity: 1;
+  z-index: 99;
+}
+
+.overlay__heart {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.overlay__heart__content {
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #00123B;
+  text-align: center;
+  line-height: 2;
+}
+
+.heart--rotate {
+  margin-top: 50%;
+  transform: rotate(45deg);
+}
+
+.heart {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: pink;
+  height: 200px;
+  width: 200px;
+  animation: heartBeats 3s ease-in-out infinite;
+  -webkit-animation: heartBeats 3s ease-in-out infinite;
+  animation-direction: alternate-reverse;
+}
+.heart::after {
+  background-color: pink;
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 0;
+  left: -100px;
+}
+.heart::before {
+  content:"";
+  background-color: pink;
+  border-radius: 50%;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: -100px;
+  left: 0px;
+}
+
+@keyframes heartBeats {
+  0% { transform: scale(1);}
+  100% { transform: scale(0.8);}
+}
+
+.overlay__close {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background:#fff;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #DB9A96;
+}
